@@ -5,10 +5,12 @@ FROM openshift/base-centos7
 # nobody :)
 
 COPY ./mailslurper /app/mailslurper
+COPY ./runme.sh /app/runme.sh
 
 # Drop the root user and make the content of /app owned by user 1001
 RUN chown -R 1001:1001 /app
 RUN chmod ugo+x /app/mailslurper
+RUN chmod ugo+x /app/runme.sh
 
 # Set the default user for the image, the user itself was created in the base image
 USER 1001
@@ -16,4 +18,4 @@ USER 1001
 EXPOSE 25 8080 8888
 WORKDIR /app
 
-CMD ["mkdir /tmp/mailslurper && cd /tmp/mailslurper && cp /app/mailslurper . && cp /config/config.json . && ./mailslurper"]
+CMD ["/app/runme.sh"]
