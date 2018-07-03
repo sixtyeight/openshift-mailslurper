@@ -15,7 +15,7 @@ RUN chmod ugo+x /app/runme.sh
 # Set the default user for the image, the user itself was created in the base image
 USER 1001
 
-EXPOSE 25 8080 8888
+EXPOSE 25 8080 8085
 WORKDIR /app
 
 CMD ["/app/runme.sh"]
