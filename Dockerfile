@@ -8,8 +8,12 @@ COPY ./mailslurper /app/mailslurper
 
 # Drop the root user and make the content of /app owned by user 1001
 RUN chown -R 1001:1001 /app
+RUN chmod ugo+x /app/mailslurper
 
 # Set the default user for the image, the user itself was created in the base image
 USER 1001
+
+EXPOSE 25,8080,8888
+WORKDIR /app
 
 CMD ["/app/mailslurper"]
