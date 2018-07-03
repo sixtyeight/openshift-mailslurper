@@ -16,4 +16,4 @@ USER 1001
 EXPOSE 25 8080 8888
 WORKDIR /app
 
-CMD ["/app/mailslurper"]
+CMD ["mkdir /tmp/mailslurper && cd /tmp/mailslurper && cp /app/mailslurper . && cp /config/config.json . && ./mailslurper"]
