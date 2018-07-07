@@ -13,7 +13,7 @@ RUN chmod ugo+x /app/mailslurper
 # Set the default user for the image, the user itself was created in the base image
 USER 1001
 
-ENV MS_CONFIG_DIR /config 
-EXPOSE 25 8080 8085
+ENV MS_CONFIG_DIR /config
+EXPOSE 2500 8080 8085
 
 CMD ["/app/mailslurper"]
